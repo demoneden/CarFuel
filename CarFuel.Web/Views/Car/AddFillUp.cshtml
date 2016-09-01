@@ -1,0 +1,20 @@
+﻿@using CarFuel.Models
+@model FillUp
+
+@{ 
+    Car car = ViewBag.Car;
+    ViewBag.Title = car.Name;
+}
+
+@(Html.Partial("ShowFillUp", car))
+
+@using (Html.BeginForm()) {
+    @Html.HiddenFor(x => x.Id)
+    @Html.LabelFor(x => x.Odometer)
+    @Html.TextBoxFor(x => x.Odometer)
+    @Html.LabelFor(x => x.Liters)
+    @Html.TextBoxFor(x => x.Liters)
+    @Html.LabelFor(x => x.IsFull)
+    @Html.CheckBoxFor(x => x.IsFull)
+    <button type="submit" class="btn btn-success">Fill</button>
+}

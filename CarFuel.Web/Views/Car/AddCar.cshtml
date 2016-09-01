@@ -1,0 +1,8 @@
+﻿@using CarFuel.Models
+@model Car
+
+@using (Html.BeginForm("AddCar", "Car", FormMethod.Post)) {
+    @Html.HiddenFor(x => x.Id)
+    @Html.TextBoxFor(x => x.Name, new { @class="form-control", @placeholder = "Enter car name" })
+    <button type="submit" class="btn btn-success">Add</button>
+}

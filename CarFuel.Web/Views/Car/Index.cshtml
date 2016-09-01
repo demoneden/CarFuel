@@ -1,0 +1,35 @@
+﻿@using CarFuel.Models
+@model IEnumerable<Car>
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Avg Kml</th>
+            <th>
+                Owner
+            </th>
+        </tr>
+    </thead>
+    @foreach (Car car in Model) {
+        <tr>
+            <td>
+                @Html.ActionLink(car.Name, "AddFillUp", new { id = car.Id })
+            </td>
+            <td>
+                @car.AverageKml
+            </td>
+            <td>
+                @car.Owner.DisplayName
+            </td>
+        </tr>
+    }
+</table>
+
+@Html.ActionLink("Add new car","AddCar", null, new { @class= "glyphicon glyphicon-plus" })
+
+

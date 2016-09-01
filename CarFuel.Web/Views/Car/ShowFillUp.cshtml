@@ -1,0 +1,45 @@
+﻿@using CarFuel.Models
+@model Car
+
+@using (Html.BeginForm()) {
+    @Html.HiddenFor(x => x.Id)
+    
+    <h2>@Html.LabelFor(x => x.Name) : @Model.Name</h2>
+    <h3>@Html.LabelFor(x => x.AverageKml) : @Model.AverageKml</h3>
+
+    <h3>Fill up history</h3>
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>
+                    Odometer
+                </th>
+                <th>
+                    Liters
+                </th>
+                <th>
+                    Kml
+                </th>
+                <th>
+                    IsFull
+                </th>
+            </tr>
+        </thead>
+        @foreach (FillUp fill in Model.FillUps) {
+            <tr>
+                <td>
+                    @fill.Odometer
+                </td>
+                <td>
+                    @fill.Liters
+                </td>
+                <td>
+                    @fill.Kml
+                </td>
+                <td>
+                    @fill.IsFull
+                </td>
+            </tr>
+        }
+    </table>
+}
